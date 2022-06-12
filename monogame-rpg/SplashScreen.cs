@@ -11,12 +11,12 @@ namespace monogame_rpg
     public class SplashScreen : GameScreen
     {
         Texture2D image;
-        string path;
+        public string Path;
+        public Vector2 Position;
         public override void LoadContent()
         {
             base.LoadContent();
-            path = "SplashScreen/Image";
-            image = content.Load<Texture2D>(path);
+            image = content.Load<Texture2D>(Path);
         }
 
         public override void UnloadContent()
@@ -31,7 +31,7 @@ namespace monogame_rpg
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image, new Vector2(25, 160), Color.White);
+            spriteBatch.Draw(image, Position, Color.White);
         }
     }
 }

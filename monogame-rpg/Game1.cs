@@ -29,6 +29,8 @@ namespace monogame_rpg
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            //ScreenManager.Instance.SpriteBatch = _spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
         }
 
