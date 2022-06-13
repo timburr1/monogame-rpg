@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
 	<Image>
-		<Path>SplashScreen/Image</Path>	
+		<Path>SplashScreen/Image</Path>
+		<Effects>FadeEffect</Effects>
+		<IsActive>true</IsActive>
 		<Position>
 			<X>25</X>
 			<Y>160</Y>
 		</Position>
 		<Alpha>0.65</Alpha>
-		<!--Scale>
-			<X>2.0</X>
-			<Y>2.0</Y>
-		</Scale-->
+		<FadeEffect>
+			<FadeSpeed>0.5</FadeSpeed>
+		</FadeEffect>
 	</Image>
 </SplashScreen>
