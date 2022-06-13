@@ -112,7 +112,7 @@ namespace monogame_rpg
 
             SetEffect<FadeEffect>(ref FadeEffect);
 
-            if(Effects != String.Empty)
+            if(Effects != null && Effects != String.Empty)
             {
                 string[] split = Effects.Split(':');
                 foreach(string item in split)

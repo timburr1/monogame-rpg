@@ -14,15 +14,20 @@ namespace monogame_rpg
         protected ContentManager content;
         [XmlIgnore]
         public Type Type;
+        public string XmlPath;        
+        
         public GameScreen()
         {
             Type = this.GetType();
+            XmlPath = "Load/" + Type.ToString().Replace("monogame_rpg.", "") + ".xml";
         }
-        public virtual void LoadContent() {
+        public virtual void LoadContent() 
+        {
             content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
         }
 
-        public virtual void UnloadContent() {
+        public virtual void UnloadContent() 
+        {
             content.Unload();        
         }
 

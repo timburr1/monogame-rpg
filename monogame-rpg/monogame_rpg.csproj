@@ -34,4 +34,9 @@
   <ItemGroup>
     <Folder Include="Content\SplashScreen\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Load\ScreenManager.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

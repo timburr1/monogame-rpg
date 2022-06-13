@@ -5,9 +5,11 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/Fonts/Yoster Island.spritefont</File>
+    <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/ScreenManager/FadeImage.png</File>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/SplashScreen/Image.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

@@ -24,6 +24,6 @@ namespace monogame_rpg
         public virtual void UnloadContent() { }
 
         public virtual void Upate(GameTime gameTime) { }
-        public virtual void Draw() { }
+        //public virtual void Draw() { }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace monogame_rpg
 {
@@ -27,6 +28,9 @@ namespace monogame_rpg
         {
             base.Update(gameTime);
             Image.Update(gameTime);
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
+                ScreenManager.Instance.ChangeScreens("SplashScreen");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
