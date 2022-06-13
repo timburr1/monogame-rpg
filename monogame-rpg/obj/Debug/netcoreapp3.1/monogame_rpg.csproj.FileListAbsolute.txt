@@ -1,3 +1,4 @@
+C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\bin\Debug\netcoreapp3.1\Content\Fonts\Yoster Island.xnb
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\bin\Debug\netcoreapp3.1\Content\SplashScreen\Image.xnb
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\bin\Debug\netcoreapp3.1\monogame_rpg.exe
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\bin\Debug\netcoreapp3.1\monogame_rpg.deps.json
@@ -22,4 +23,3 @@ C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\obj\Debug\netcoreapp3.1\monogame_
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\obj\Debug\netcoreapp3.1\monogame_rpg.dll
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\obj\Debug\netcoreapp3.1\monogame_rpg.pdb
 C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\obj\Debug\netcoreapp3.1\monogame_rpg.genruntimeconfig.cache
-C:\Users\tim\Desktop\monogame-rpg\monogame-rpg\obj\Debug\netcoreapp3.1\monogame_rpg.csproj.AssemblyReference.cache

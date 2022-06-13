@@ -1,8 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
-	<Path>SplashScreen/Image</Path>
-	<Position>
-		<X>25</X>
-		<Y>160</Y>
-	</Position>
+	<Image>
+		<Path>SplashScreen/Image</Path>	
+		<Position>
+			<X>25</X>
+			<Y>160</Y>
+		</Position>
+		<Alpha>0.65</Alpha>
+		<!--Scale>
+			<X>2.0</X>
+			<Y>2.0</Y>
+		</Scale-->
+	</Image>
 </SplashScreen>
