@@ -15,12 +15,51 @@ namespace monogame_rpg
         public string Text, FontName, Path;
         public Vector2 Position, Scale;        
         public Rectangle SourceRect;
+        public bool IsActive;
         
         Texture2D Texture;
         Vector2 origin;
         ContentManager contentManager;
         RenderTarget2D renderTarget;
         SpriteFont font;
+        Dictionary<string, ImageEffect> effectMap;
+        public string Effects;
+
+        public FadeEffect FadeEffect;
+
+        void SetEffect<T>(ref T effect) 
+        {
+            if (effect == null)
+                effect = (T)Activator.CreateInstance(typeof(T));
+            else
+            {
+                (effect as ImageEffect).IsActive = true;
+                var obj = this;
+                (effect as ImageEffect).LoadContent(ref obj);
+            }
+
+            effectMap.Add(effect.GetType().ToString().Replace("monogame_rpg.", ""), (effect as ImageEffect));
+        }
+
+        public void ActivateEffect(string effect) 
+        { 
+            if(effectMap.ContainsKey(effect))
+            {
+                effectMap[effect].IsActive = true;
+                var obj = this;
+                effectMap[effect].LoadContent(ref obj);
+            }
+        }
+
+        public void DeactivateEffect(string effect) 
+        { 
+            if(effectMap.ContainsKey(effect))
+            {
+                effectMap[effect].IsActive = false;
+                effectMap[effect].UnloadContent();
+            }
+        }
+
         public Image()
         {
             Path = Text = String.Empty;
@@ -29,6 +68,7 @@ namespace monogame_rpg
             Scale = Vector2.One;
             Alpha = 1.0f;
             SourceRect = Rectangle.Empty;
+            effectMap = new Dictionary<string, ImageEffect>();
         } 
 
         public void LoadContent() 
@@ -69,13 +109,32 @@ namespace monogame_rpg
             Texture = renderTarget;
 
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+
+            SetEffect<FadeEffect>(ref FadeEffect);
+
+            if(Effects != String.Empty)
+            {
+                string[] split = Effects.Split(':');
+                foreach(string item in split)
+                    ActivateEffect(item);
+            }
+            
         }
 
         public void UnloadContent() {
             contentManager.Unload();
+            foreach (var effect in effectMap)
+                DeactivateEffect(effect.Key);
         }
 
-        public void Update(GameTime gameTime) { }
+        public void Update(GameTime gameTime) 
+        {
+            foreach (var effect in effectMap)
+            {
+                if(effect.Value.IsActive)
+                    effect.Value.Upate(gameTime);
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch) {
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
