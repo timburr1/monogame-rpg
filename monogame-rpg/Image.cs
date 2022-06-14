@@ -17,7 +17,8 @@ namespace monogame_rpg
         public Rectangle SourceRect;
         public bool IsActive;
         
-        Texture2D Texture;
+        [XmlIgnore]
+        public Texture2D Texture;
         Vector2 origin;
         ContentManager contentManager;
         RenderTarget2D renderTarget;
@@ -26,6 +27,7 @@ namespace monogame_rpg
         public string Effects;
 
         public FadeEffect FadeEffect;
+        public SpriteSheetEffect SpriteSheetEffect;
 
         void SetEffect<T>(ref T effect) 
         {
@@ -135,6 +137,7 @@ namespace monogame_rpg
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
 
             SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect<SpriteSheetEffect>(ref SpriteSheetEffect);
 
             if(Effects != null && Effects != String.Empty)
             {
