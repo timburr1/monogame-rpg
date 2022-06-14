@@ -1,4 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/Fonts/Yoster Island.spritefont","C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/bin/DesktopGL/Content/Fonts/Yoster Island.xnb","FontDescriptionProcessor","SpriteFontContent",2013,21538,0.4337593
+"C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/Fonts/Yoster Island.spritefont","C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/bin/DesktopGL/Content/Fonts/Yoster Island.xnb","FontDescriptionProcessor","SpriteFontContent",2013,136226,0.4511501
 "C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/ScreenManager/FadeImage.png","C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/bin/DesktopGL/Content/ScreenManager/FadeImage.xnb","TextureProcessor","Texture2DContent",119,89,0.3104213
 "C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/SplashScreen/Image.png","C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/bin/DesktopGL/Content/SplashScreen/Image.xnb","TextureProcessor","Texture2DContent",9179,267373,0.2827623
