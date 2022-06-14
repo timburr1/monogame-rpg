@@ -60,6 +60,30 @@ namespace monogame_rpg
             }
         }
 
+        public void StoreEffects()
+        {
+            Effects = String.Empty;
+
+            foreach(var effect in effectMap)
+            {
+                if(effect.Value.IsActive)
+                    Effects += effect.Key + ":";
+            }
+
+            if(Effects != String.Empty)
+                Effects.Remove(Effects.Length - 1);
+        }
+        
+        public void RestoreEffects()
+        {
+            foreach(var effect in effectMap)
+                DeactivateEffect(effect.Key);
+
+            string[] split = Effects.Split(':');
+            foreach (string s in split)
+                ActivateEffect(s);
+        }
+
         public Image()
         {
             Path = Text = String.Empty;

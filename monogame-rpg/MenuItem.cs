@@ -7,7 +7,7 @@ namespace monogame_rpg
     public class MenuItem
     {
         public string LinkType;
-        public string LinkId;
+        public string LinkID;
         public Image Image;
     }
 }
