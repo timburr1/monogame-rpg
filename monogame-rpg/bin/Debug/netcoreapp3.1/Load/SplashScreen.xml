@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SplashScreen>
+	<Image>
+		<Path>SplashScreen/Image</Path>	
+		<IsActive>true</IsActive>
+		<Position>
+			<X>25</X>
+			<Y>160</Y>
+		</Position>
+		<Alpha>0.65</Alpha>
+	</Image>
+</SplashScreen>
