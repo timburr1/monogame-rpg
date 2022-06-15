@@ -25,25 +25,42 @@ namespace monogame_rpg
 
         [XmlElement("TileMap")]
         public TileMap tileMap;
+        public Image Image;
         List<Tile> tiles;
-
+        
         public Layer()
         {
-
+            Image = new Image();
+            tiles = new List<Tile>();
         }
 
         public  void LoadContent(Vector2 tileDimensions)
         {
+            Image.LoadContent();
+
+            //position for current tile
+            Vector2 position = -tileDimensions;
+
             foreach(string row in tileMap.Row)
             {
                 string[] split = row.Split(']');
+
+                position.X = -tileDimensions.X;
+                position.Y += tileDimensions.Y;
+
                 foreach(string s in split)
                 {
                     if (s != String.Empty)
                     {
+                        position.X += tileDimensions.X;
+                        tiles.Add(new Tile());                        
+                        
                         string str = s.Replace("[", "");
                         int val1 = int.Parse(str.Substring(0, str.IndexOf(':')));
                         int val2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
+
+                        tiles[tiles.Count - 1].LoadContent(position, new Rectangle(val1 * (int)tileDimensions.X, val2 * (int)tileDimensions.Y, 
+                            (int)tileDimensions.X, (int)tileDimensions.Y));
                     }
                 }
             }
@@ -51,17 +68,21 @@ namespace monogame_rpg
 
         public void UnloadContent()
         {
-
+            Image.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            foreach(Tile tile in tiles)
+            {
+                Image.Position = tile.Position;
+                Image.SourceRect = tile.SourceRect;
+                Image.Draw(spriteBatch);
+            }
         }
     }
 }

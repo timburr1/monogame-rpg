@@ -6,11 +6,13 @@
   <SourceFiles>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/../../../Player.png</File>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/Fonts/Yoster Island.spritefont</File>
+    <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/Gameplay/TileSheets/TileSheet1.png</File>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/ScreenManager/FadeImage.png</File>
     <File>C:/Users/tim/Desktop/monogame-rpg/monogame-rpg/Content/SplashScreen/Image.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Gameplay/Player.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
