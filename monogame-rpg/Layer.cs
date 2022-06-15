@@ -26,16 +26,17 @@ namespace monogame_rpg
         [XmlElement("TileMap")]
         public TileMap tileMap;
         public Image Image;
-        public string SolidTiles;
+        public string SolidTiles, OverlayTiles;
 
-        List<Tile> tiles;
+        List<Tile> underlayTiles, overlayTiles;
         string state;
         
         public Layer()
         {
             Image = new Image();
-            tiles = new List<Tile>();
-            SolidTiles = String.Empty;
+            underlayTiles = new List<Tile>();
+            overlayTiles = new List<Tile>();
+            SolidTiles = OverlayTiles = String.Empty;
         }
 
         public  void LoadContent(Vector2 tileDimensions)
@@ -61,7 +62,7 @@ namespace monogame_rpg
                         if (!s.Contains("X"))
                         {
                             state = "Passive";
-                            tiles.Add(new Tile());
+                            Tile tile = new Tile();
 
                             string str = s.Replace("[", "");
                             int val1 = int.Parse(str.Substring(0, str.IndexOf(':')));
@@ -70,8 +71,13 @@ namespace monogame_rpg
                             if (SolidTiles.Contains("[" + val1.ToString() + ":" + val2.ToString() + "]"))
                                 state = "Solid";
 
-                            tiles[tiles.Count - 1].LoadContent(position, new Rectangle(val1 * (int)tileDimensions.X, val2 * (int)tileDimensions.Y,
+                            tile.LoadContent(position, new Rectangle(val1 * (int)tileDimensions.X, val2 * (int)tileDimensions.Y,
                                 (int)tileDimensions.X, (int)tileDimensions.Y), state);
+
+                            if (OverlayTiles.Contains("[" + val1.ToString() + ":" + val2.ToString() + "]"))
+                                overlayTiles.Add(tile);
+                            else
+                                underlayTiles.Add(tile);
                         }
                     }
                 }
@@ -85,12 +91,22 @@ namespace monogame_rpg
 
         public void Update(GameTime gameTime, ref Player player)
         {
-            foreach (Tile tile in tiles)
+            foreach (Tile tile in underlayTiles)
+                tile.Update(gameTime, ref player);
+
+            foreach (Tile tile in overlayTiles)
                 tile.Update(gameTime, ref player);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, string drawType)
         {
+            List<Tile> tiles;
+
+            if (drawType == "Underlay")
+                tiles = underlayTiles;
+            else
+                tiles = overlayTiles;
+
             foreach(Tile tile in tiles)
             {
                 Image.Position = tile.Position;

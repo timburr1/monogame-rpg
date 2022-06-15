@@ -39,10 +39,10 @@ namespace monogame_rpg
                 l.Update(gameTime, ref player);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, string drawType)
         {
             foreach (Layer l in Layers)
-                l.Draw(spriteBatch);
+                l.Draw(spriteBatch, drawType);
         }
     }
 }
