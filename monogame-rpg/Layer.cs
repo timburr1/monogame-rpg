@@ -26,12 +26,16 @@ namespace monogame_rpg
         [XmlElement("TileMap")]
         public TileMap tileMap;
         public Image Image;
+        public string SolidTiles;
+
         List<Tile> tiles;
+        string state;
         
         public Layer()
         {
             Image = new Image();
             tiles = new List<Tile>();
+            SolidTiles = String.Empty;
         }
 
         public  void LoadContent(Vector2 tileDimensions)
@@ -53,14 +57,22 @@ namespace monogame_rpg
                     if (s != String.Empty)
                     {
                         position.X += tileDimensions.X;
-                        tiles.Add(new Tile());                        
-                        
-                        string str = s.Replace("[", "");
-                        int val1 = int.Parse(str.Substring(0, str.IndexOf(':')));
-                        int val2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
 
-                        tiles[tiles.Count - 1].LoadContent(position, new Rectangle(val1 * (int)tileDimensions.X, val2 * (int)tileDimensions.Y, 
-                            (int)tileDimensions.X, (int)tileDimensions.Y));
+                        if (!s.Contains("X"))
+                        {
+                            state = "Passive";
+                            tiles.Add(new Tile());
+
+                            string str = s.Replace("[", "");
+                            int val1 = int.Parse(str.Substring(0, str.IndexOf(':')));
+                            int val2 = int.Parse(str.Substring(str.IndexOf(':') + 1));
+
+                            if (SolidTiles.Contains("[" + val1.ToString() + ":" + val2.ToString() + "]"))
+                                state = "Solid";
+
+                            tiles[tiles.Count - 1].LoadContent(position, new Rectangle(val1 * (int)tileDimensions.X, val2 * (int)tileDimensions.Y,
+                                (int)tileDimensions.X, (int)tileDimensions.Y), state);
+                        }
                     }
                 }
             }
@@ -71,8 +83,10 @@ namespace monogame_rpg
             Image.UnloadContent();
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, ref Player player)
         {
+            foreach (Tile tile in tiles)
+                tile.Update(gameTime, ref player);
         }
 
         public void Draw(SpriteBatch spriteBatch)
