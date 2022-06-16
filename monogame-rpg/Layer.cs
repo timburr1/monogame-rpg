@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml.Serialization;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace monogame_rpg
 {
-    
+
     public class Layer
     {
         public class TileMap
